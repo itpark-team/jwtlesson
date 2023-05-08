@@ -22,13 +22,11 @@ public class UsersService {
 
         User user = userResult.get();
 
-        UserResponseDto userResponseDto = UserResponseDto.builder()
+        return UserResponseDto.builder()
                 .name(user.getName())
                 .email(user.getEmail())
                 .description(user.getDescription())
                 .build();
-
-        return userResponseDto;
     }
 
 }

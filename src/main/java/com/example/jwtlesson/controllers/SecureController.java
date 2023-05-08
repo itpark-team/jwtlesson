@@ -14,7 +14,6 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/v1/secure")
-@CrossOrigin(origins = "*", maxAge = 3600)
 @AllArgsConstructor
 public class SecureController {
 
@@ -27,14 +26,8 @@ public class SecureController {
 
     @GetMapping("/get-user")
     public UserResponseDto getUser(Principal principal) throws Exception {
-        UserResponseDto userResponseDto = usersService.getUserByUsername(principal.getName());
-        return userResponseDto;
+        return usersService.getUserByUsername(principal.getName());
     }
-
-//    @GetMapping("/get-user")
-//    public String getUser(Principal principal) throws Exception {
-//        return principal.getName();
-//    }
 }
 
 
